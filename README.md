@@ -17,26 +17,84 @@ A simple Python-based expense tracking tool that helps you log, categorize, and 
 - Python 3.x
 - matplotlib (for visualizations)
 
-## Installation
+## Installation & Setup
 
-1. Clone the repository:
-```bash
+### Windows
+
+```cmd
+# Clone repository
 git clone https://github.com/PierrunoYT/expense-tracker.git
 cd expense-tracker
+
+# Create and activate virtual environment
+python -m venv venv
+.\venv\Scripts\activate
+
+# Install dependencies
+pip install matplotlib
 ```
 
-2. Install required packages:
+### macOS
+
 ```bash
-pip install matplotlib
+# Clone repository
+git clone https://github.com/PierrunoYT/expense-tracker.git
+cd expense-tracker
+
+# Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip3 install matplotlib
+```
+
+### Linux
+
+```bash
+# Install Python if needed
+sudo apt-get update
+sudo apt-get install python3 python3-pip python3-venv
+
+# Clone repository
+git clone https://github.com/PierrunoYT/expense-tracker.git
+cd expense-tracker
+
+# Create and activate virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip3 install matplotlib
 ```
 
 ## Usage
 
-### Interactive CLI
+### Running the Program
 
-Run the program:
-```bash
+**Windows:**
+```cmd
+.\venv\Scripts\activate
 python main.py
+```
+
+**macOS/Linux:**
+```bash
+source venv/bin/activate
+python3 main.py
+```
+
+### Interactive Commands
+
+Once running, the following commands are available:
+```
+add           - Add a new expense
+list          - List all expenses
+totals        - Show totals by category
+viz pie       - Show pie chart of expenses
+viz timeline  - Show timeline of expenses
+help          - Show available commands
+exit          - Exit the program
 ```
 
 ### Data Storage
@@ -83,12 +141,21 @@ plot_expenses_timeline(tracker)
 - `init_expenses.py`: Helper script to initialize expenses file
 - `expenses.csv`: Data storage file (auto-generated, git-ignored)
 
-## Files Description
+## Troubleshooting
 
-- `expense_tracker.py`: Contains the ExpenseTracker class with methods for adding and retrieving expenses
-- `visualize.py`: Provides visualization functions using matplotlib for creating pie charts and timeline plots
-- `main.py`: Implements the interactive command-line interface
-- `init_expenses.py`: Helper script for initializing the expense tracking system
+### Windows
+- If you get "python not found", ensure Python is added to your PATH
+- Use `python` instead of `python3` for commands
+
+### macOS
+- Use `python3` instead of `python` for commands
+- If matplotlib fails: `echo "backend: TkAgg" > ~/.matplotlib/matplotlibrc`
+
+### Linux
+- If matplotlib fails, install required system packages:
+  ```bash
+  sudo apt-get install python3-tk
+  ```
 
 ## Contributing
 
