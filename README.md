@@ -1,129 +1,72 @@
 # Expense Tracker
 
-A simple Python-based expense tracking tool that helps you log, categorize, and visualize your expenses.
-
-## Installation
-
-### Prerequisites
-- Python 3.x installed on your system
-- pip (Python package installer)
-
-### Windows
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/expense-tracker.git
-cd expense-tracker
-
-# Create and activate virtual environment
-python -m venv venv
-.\venv\Scripts\activate
-
-# Install requirements
-pip install matplotlib
-```
-
-### macOS/Linux
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/expense-tracker.git
-cd expense-tracker
-
-# Create and activate virtual environment
-python3 -m venv venv
-source venv/bin/activate
-
-# Install requirements
-pip install matplotlib
-```
+A simple and efficient Python-based expense tracking tool that helps you manage and analyze your expenses.
 
 ## Features
 
-- Log expenses with date, amount, category, and description
-- Store expense data in CSV format
+- Track expenses with date, amount, category, and description
+- CSV-based storage for easy data portability
+- Simple API for adding and retrieving expenses
 - Calculate totals by category
-- Visualize expenses through:
-  - Pie charts showing expense distribution by category
-  - Timeline plots showing expenses over time
+- Flexible date handling (DD.MM.YYYY format)
 
-## Requirements
+## Installation
 
-- Python 3.x
-- matplotlib
-- csv (built-in)
-- datetime (built-in)
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/expense-tracker.git
+cd expense-tracker
+```
+
+2. No additional dependencies required - uses Python standard library only!
 
 ## Usage
 
-### Running the Program
+### Basic Usage
 
-#### Windows
-```bash
-# Activate virtual environment (if not already activated)
-.\venv\Scripts\activate
+```python
+from expense_tracker import ExpenseTracker
 
-# Run Python in interactive mode
-python
+# Create a new tracker instance
+tracker = ExpenseTracker()
+
+# Add an expense
+tracker.add_expense(
+    amount=20,
+    category="food",
+    description="lunch",
+    date="14.01.2025"  # Optional, defaults to current date
+)
+
+# Get all expenses
+expenses = tracker.get_expenses()
+
+# Get totals by category
+totals = tracker.get_total_by_category()
 ```
 
-#### macOS/Linux
-```bash
-# Activate virtual environment (if not already activated)
-source venv/bin/activate
+### File Structure
 
-# Run Python in interactive mode
-python3
+The expenses are stored in a CSV file with the following format:
+```
+date;amount;category;description
+14.01.2025;20;food;test
 ```
 
-### Interactive CLI
+## Project Structure
 
-Start the interactive CLI:
-```bash
-python main.py
-```
+- `expense_tracker.py`: Main implementation of the ExpenseTracker class
+- `init_expenses.py`: Helper script to initialize the expenses file
+- `expenses.csv`: Data storage file (auto-generated, git-ignored)
 
-Available commands:
-```
-add           - Add a new expense
-list          - List all expenses
-totals        - Show totals by category
-viz pie       - Show pie chart of expenses
-viz timeline  - Show timeline of expenses
-help          - Show available commands
-exit          - Exit the program
-```
+## Contributing
 
-Example session:
-```
-> add
-Amount: 50.00
-Category: Groceries
-Description (optional): Weekly shopping
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-> list
-2024-01-14: 50.00 (Groceries) - Weekly shopping
+## License
 
-> totals
-Groceries: 50.00
-
-> viz pie
-[Shows pie chart visualization]
-```
-
-### Notes
-- The expenses.csv file will be created automatically in your working directory
-- Make sure your virtual environment is activated before running the code
-- To exit Python interactive mode, type `exit()` or press Ctrl+Z (Windows) / Ctrl+D (macOS/Linux)
-
-## File Structure
-
-- `expense_tracker.py`: Main class for expense tracking functionality
-- `visualize.py`: Visualization functions using matplotlib
-- `expenses.csv`: Data storage file (created automatically)
-
-## Data Storage
-
-Expenses are stored in a CSV file with the following columns:
-- Date (YYYY-MM-DD)
-- Amount
-- Category
-- Description
+This project is licensed under the MIT License - see the LICENSE file for details.
