@@ -42,6 +42,8 @@ class ExpenseTracker:
         """Return all expenses as a list of dictionaries"""
         expenses = []
         with open(self.csv_file, 'r') as file:
+            # Skip the categories row
+            next(file)
             reader = csv.DictReader(file, delimiter=';', quoting=csv.QUOTE_MINIMAL)
             for row in reader:
                 expenses.append(row)
