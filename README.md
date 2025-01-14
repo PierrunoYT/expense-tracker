@@ -14,7 +14,7 @@ A simple and efficient Python-based expense tracking tool that helps you manage 
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/expense-tracker.git
+git clone https://github.com/PierrunoYT/expense-tracker.git
 cd expense-tracker
 ```
 
