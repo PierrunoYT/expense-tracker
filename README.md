@@ -1,48 +1,66 @@
 # Expense Tracker
 
-A simple and efficient Python-based expense tracking tool that helps you manage and analyze your expenses.
+A simple Python-based expense tracking tool that helps you log, categorize, and visualize your expenses through an interactive CLI interface.
 
 ## Features
 
+- Interactive command-line interface
 - Track expenses with date, amount, category, and description
 - CSV-based storage for easy data portability
-- Simple API for adding and retrieving expenses
 - Calculate totals by category
-- Flexible date handling (DD.MM.YYYY format)
+- Visualize expenses through:
+  - Pie charts showing expense distribution by category
+  - Timeline plots showing expenses over time
+
+## Requirements
+
+- Python 3.x
+- matplotlib (for visualizations)
 
 ## Installation
 
 1. Clone the repository:
-
-**Windows:**
-```cmd
-git clone https://github.com/PierrunoYT/expense-tracker.git
-cd expense-tracker
-```
-
-**macOS/Linux:**
 ```bash
 git clone https://github.com/PierrunoYT/expense-tracker.git
 cd expense-tracker
 ```
 
-2. No additional dependencies required - uses Python standard library only!
+2. Install required packages:
+```bash
+pip install matplotlib
+```
 
 ## Usage
 
-### Basic Usage
+### Interactive CLI
+
+Run the program:
+```bash
+python main.py
+```
+
+### Data Storage
+
+The expenses are stored in a CSV file with the following format:
+```
+date;amount;category;description
+14.01.2025;20;food;test
+```
+
+### Programmatic Usage
 
 ```python
 from expense_tracker import ExpenseTracker
+from visualize import plot_expenses_by_category, plot_expenses_timeline
 
-# Create a new tracker instance
+# Create a tracker instance
 tracker = ExpenseTracker()
 
 # Add an expense
 tracker.add_expense(
-    amount=20,
-    category="food",
-    description="lunch",
+    amount=50.00,
+    category="Groceries",
+    description="Weekly shopping",
     date="14.01.2025"  # Optional, defaults to current date
 )
 
@@ -51,21 +69,26 @@ expenses = tracker.get_expenses()
 
 # Get totals by category
 totals = tracker.get_total_by_category()
-```
 
-### File Structure
-
-The expenses are stored in a CSV file with the following format:
-```
-date;amount;category;description
-14.01.2025;20;food;test
+# Create visualizations
+plot_expenses_by_category(tracker)
+plot_expenses_timeline(tracker)
 ```
 
 ## Project Structure
 
-- `expense_tracker.py`: Main implementation of the ExpenseTracker class
-- `init_expenses.py`: Helper script to initialize the expenses file
+- `main.py`: Interactive CLI interface
+- `expense_tracker.py`: Core expense tracking functionality
+- `visualize.py`: Visualization functions using matplotlib
+- `init_expenses.py`: Helper script to initialize expenses file
 - `expenses.csv`: Data storage file (auto-generated, git-ignored)
+
+## Files Description
+
+- `expense_tracker.py`: Contains the ExpenseTracker class with methods for adding and retrieving expenses
+- `visualize.py`: Provides visualization functions using matplotlib for creating pie charts and timeline plots
+- `main.py`: Implements the interactive command-line interface
+- `init_expenses.py`: Helper script for initializing the expense tracking system
 
 ## Contributing
 

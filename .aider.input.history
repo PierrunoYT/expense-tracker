@@ -1,0 +1,48 @@
+
+# 2025-01-14 11:57:30.599146
++Description: Create a tool to log and categorize expenses.
++
++Libraries: csv, datetime, matplotlib (for visualizations).
+
+# 2025-01-14 11:58:11.135731
++create a readme
+
+# 2025-01-14 12:00:39.861034
++update the readme how to use it on win mac and linux
+
+# 2025-01-14 12:02:09.676684
++it should be a cli
+
+# 2025-01-14 12:03:04.814325
++/ask how to remove python file from git
+
+# 2025-01-14 12:04:00.586732
++/drop python
+
+# 2025-01-14 12:04:04.394851
++/add main.py
+
+# 2025-01-14 12:04:22.461150
++the cli should be interactive
+
+# 2025-01-14 12:06:09.716243
++in the csv file all data is in one field
+
+# 2025-01-14 12:07:23.639969
++add a test file to check the csv
+
+# 2025-01-14 12:07:37.084214
++n
+
+# 2025-01-14 13:11:42.168870
++/add "G:\Python Tools\Expense Tracker\.gitignore"
++"G:\Python Tools\Expense Tracker\expense_tracker.py"
++"G:\Python Tools\Expense Tracker\README.md"
++"G:\Python Tools\Expense Tracker\visualize.py"
++"G:\Python Tools\Expense Tracker\main.py"
+
+# 2025-01-14 13:11:48.420425
++make the tool ready for github
+
+# 2025-01-14 13:12:12.802821
++n
