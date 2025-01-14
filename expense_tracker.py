@@ -11,21 +11,21 @@ class ExpenseTracker:
         """Create CSV file with headers if it doesn't exist"""
         if not os.path.exists(self.csv_file):
             with open(self.csv_file, 'w', newline='') as file:
-                writer = csv.writer(file)
+                writer = csv.writer(file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
                 writer.writerow(['Date', 'Amount', 'Category', 'Description'])
     
     def add_expense(self, amount, category, description=''):
         """Add a new expense entry"""
         date = datetime.now().strftime('%Y-%m-%d')
         with open(self.csv_file, 'a', newline='') as file:
-            writer = csv.writer(file)
+            writer = csv.writer(file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
             writer.writerow([date, amount, category, description])
     
     def get_expenses(self):
         """Return all expenses as a list of dictionaries"""
         expenses = []
         with open(self.csv_file, 'r') as file:
-            reader = csv.DictReader(file)
+            reader = csv.DictReader(file, delimiter=',', quoting=csv.QUOTE_MINIMAL)
             for row in reader:
                 expenses.append(row)
         return expenses
