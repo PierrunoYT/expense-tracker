@@ -12,6 +12,9 @@ class ExpenseTracker:
         if not os.path.exists(self.csv_file):
             with open(self.csv_file, 'w', newline='') as file:
                 writer = csv.writer(file, delimiter=';', quoting=csv.QUOTE_MINIMAL)
+                # Write categories row
+                writer.writerow(['date', 'amount', 'category', 'description'])
+                # Write headers row
                 writer.writerow(['Date', 'Amount', 'Category', 'Description'])
     
     def add_expense(self, amount, category, description='', date=None):
