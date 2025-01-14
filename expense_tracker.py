@@ -14,9 +14,23 @@ class ExpenseTracker:
                 writer = csv.writer(file, delimiter=';', quoting=csv.QUOTE_MINIMAL)
                 writer.writerow(['Date', 'Amount', 'Category', 'Description'])
     
-    def add_expense(self, amount, category, description=''):
-        """Add a new expense entry"""
-        date = datetime.now().strftime('%Y-%m-%d')
+    def add_expense(self, amount, category, description='', date=None):
+        """Add a new expense entry
+        
+        Args:
+            amount: The expense amount
+            category: The expense category
+            description: Optional description of the expense
+            date: Optional date string in YYYY-MM-DD format. If not provided, current date is used.
+        """
+        if date is None:
+            date = datetime.now().strftime('%Y-%m-%d')
+        else:
+            # Validate date format
+            try:
+                datetime.strptime(date, '%Y-%m-%d')
+            except ValueError:
+                raise ValueError("Date must be in YYYY-MM-DD format")
         with open(self.csv_file, 'a', newline='') as file:
             writer = csv.writer(file, delimiter=';', quoting=csv.QUOTE_MINIMAL)
             writer.writerow([date, amount, category, description])
