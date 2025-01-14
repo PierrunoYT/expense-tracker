@@ -74,24 +74,26 @@ source venv/bin/activate
 python3
 ```
 
-### Example Code
-```python
-from expense_tracker import ExpenseTracker
-from visualize import plot_expenses_by_category, plot_expenses_timeline
+### CLI Commands
 
-# Create a tracker instance
-tracker = ExpenseTracker()
+```bash
+# Add an expense
+python main.py add 50.00 Groceries -d "Weekly shopping"
 
-# Add some expenses
-tracker.add_expense(50.00, "Groceries", "Weekly shopping")
-tracker.add_expense(30.00, "Transportation", "Bus ticket")
+# List all expenses
+python main.py list
 
-# View expenses by category
-print(tracker.get_total_by_category())
+# Show totals by category
+python main.py totals
 
-# Create visualizations
-plot_expenses_by_category(tracker)
-plot_expenses_timeline(tracker)
+# Visualize expenses (pie chart)
+python main.py viz pie
+
+# Visualize expenses (timeline)
+python main.py viz timeline
+
+# Show help
+python main.py --help
 ```
 
 ### Notes
