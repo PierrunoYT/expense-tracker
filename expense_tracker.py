@@ -12,10 +12,7 @@ class ExpenseTracker:
         if not os.path.exists(self.csv_file):
             with open(self.csv_file, 'w', newline='') as file:
                 writer = csv.writer(file, delimiter=';', quoting=csv.QUOTE_MINIMAL)
-                # Write categories row
                 writer.writerow(['date', 'amount', 'category', 'description'])
-                # Write headers row
-                writer.writerow(['Date', 'Amount', 'Category', 'Description'])
     
     def add_expense(self, amount, category, description='', date=None):
         """Add a new expense entry
@@ -24,16 +21,16 @@ class ExpenseTracker:
             amount: The expense amount
             category: The expense category
             description: Optional description of the expense
-            date: Optional date string in YYYY-MM-DD format. If not provided, current date is used.
+            date: Optional date string in DD.MM.YYYY format. If not provided, current date is used.
         """
         if date is None:
-            date = datetime.now().strftime('%Y-%m-%d')
+            date = datetime.now().strftime('%d.%m.%Y')
         else:
             # Validate date format
             try:
-                datetime.strptime(date, '%Y-%m-%d')
+                datetime.strptime(date, '%d.%m.%Y')
             except ValueError:
-                raise ValueError("Date must be in YYYY-MM-DD format")
+                raise ValueError("Date must be in DD.MM.YYYY format")
         with open(self.csv_file, 'a', newline='') as file:
             writer = csv.writer(file, delimiter=';', quoting=csv.QUOTE_MINIMAL)
             writer.writerow([date, amount, category, description])
@@ -42,8 +39,6 @@ class ExpenseTracker:
         """Return all expenses as a list of dictionaries"""
         expenses = []
         with open(self.csv_file, 'r') as file:
-            # Skip the categories row
-            next(file)
             reader = csv.DictReader(file, delimiter=';', quoting=csv.QUOTE_MINIMAL)
             for row in reader:
                 expenses.append(row)
