@@ -74,26 +74,39 @@ source venv/bin/activate
 python3
 ```
 
-### CLI Commands
+### Interactive CLI
 
+Start the interactive CLI:
 ```bash
-# Add an expense
-python main.py add 50.00 Groceries -d "Weekly shopping"
+python main.py
+```
 
-# List all expenses
-python main.py list
+Available commands:
+```
+add           - Add a new expense
+list          - List all expenses
+totals        - Show totals by category
+viz pie       - Show pie chart of expenses
+viz timeline  - Show timeline of expenses
+help          - Show available commands
+exit          - Exit the program
+```
 
-# Show totals by category
-python main.py totals
+Example session:
+```
+> add
+Amount: 50.00
+Category: Groceries
+Description (optional): Weekly shopping
 
-# Visualize expenses (pie chart)
-python main.py viz pie
+> list
+2024-01-14: 50.00 (Groceries) - Weekly shopping
 
-# Visualize expenses (timeline)
-python main.py viz timeline
+> totals
+Groceries: 50.00
 
-# Show help
-python main.py --help
+> viz pie
+[Shows pie chart visualization]
 ```
 
 ### Notes
